@@ -31,3 +31,15 @@ post = (url, employees, callback) => {
         callback(employees);
     }
 }
+
+// put request
+put = (url, employees, callback) => {
+    this.http.open('PUT', url, true);
+    this.http.setRequestHeader('content-type', 'application');
+    this.http.send();
+    this.http.onload = () => {
+        let data = this.http.responseText;
+        let empoyees = JSON.parse(data)
+        callback(employees);
+    }
+}
